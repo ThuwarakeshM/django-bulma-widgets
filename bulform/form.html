@@ -11,13 +11,20 @@
             aria-label="close"></a>
     </header>
     <section class="modal-card-body">
+        {% if text %}
+          <p class="has-text-centered">{{text}}</p>
+        {% endif %}
 
         {% csrf_token %}
 
         {% include "bulform/coreform.html" %}
     </section>
     <footer class="modal-card-foot">
-        <button class="button is-primary" style="width:100%;">Submit</button>
+        {% if action %}
+        <button class="button is-{{action}}" style="width:100%;">Submit</button>
+        {% else %}
+        <button class="button is-primary" style="width:100%;">Submit</button>          
+        {% endif %}
         <a href="javascript:document.querySelector('.modal').classList.remove('is-active');" class="button cancel-form"
             style="width:100%;">Cancel</a>
         </div>
