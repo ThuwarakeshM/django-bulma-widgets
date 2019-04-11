@@ -1,14 +1,15 @@
 <a href="javascript:document.querySelector('.modal').classList.remove('is-active');" class="modal-background"></a>
-<a class="modal-close is-large" aria-label="close" href="javascript:document.querySelector('.modal').classList.remove('is-active');" class="modal-close"></a>
+<a class="modal-close is-large" aria-label="close"
+    href="javascript:document.querySelector('.modal').classList.remove('is-active');" class="modal-close"></a>
 <form class="modal-card" action="{{request.get_full_path}}" method="post" {% if form.is_multipart %}
     enctype="multipart/form-data" {% endif %}>
-    {% if title %}
     <header class="modal-card-head">
+        {% if title %}
         <p class="modal-card-title">{{title}}</p>
+        {% endif %}
         <a href="javascript:document.querySelector('.modal').classList.remove('is-active');" class="delete"
-        aria-label="close"></a>
+            aria-label="close"></a>
     </header>
-    {% endif %}
     <section class="modal-card-body">
 
         {% csrf_token %}
