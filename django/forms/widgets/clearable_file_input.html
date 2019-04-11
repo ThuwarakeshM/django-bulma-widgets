@@ -1,0 +1,29 @@
+{% if widget.is_initial %}
+
+<label class="checkbox">
+    <input type="checkbox" name="{{ widget.checkbox_name }}" id="{{ widget.checkbox_id }}">
+    Remove Current Selection
+</label>
+    
+{% endif %}
+    
+<div class="file">
+    <label class="file-label">
+        <input class="file-input" type="{{ widget.type }}" name="{{ widget.name }}" {% include "django/forms/widgets/attrs.html" %}>
+        <span class="file-cta">
+            <span class="file-icon">
+                <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label">
+                
+                {% ifequal widget.attrs.accept 'image/*' %}
+                Choose an Image
+                {% else %}
+                Choose a File
+                {% endifequal %}
+                    
+                     
+            </span>
+        </span>
+    </label>
+</div>

@@ -1,0 +1,8 @@
+<label class="checkbox">
+    <input type="checkbox" name="{{widget.name}}" {% if widget.value %} value="{{widget.value}}" {% endif %}>
+
+    {% if widget.attrs.label %}
+    {{widget.attrs.label}}
+    {% endif %}
+
+</label>
